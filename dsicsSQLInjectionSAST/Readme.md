@@ -1,6 +1,6 @@
 # dsicsSQLInjectionSAST
 
-The repo will contain the jupyter note book and other modules required to do source code analysis on php
+The repo will contain the jupyter note book and other modules required to find SQL operations and SQL injection in the codebase.
 
 
 ###  Video POC
