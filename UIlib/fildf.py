@@ -69,7 +69,7 @@ class DataFrameOperations:
              elif operation == 'smatch':
                 result = self.smatch(column, parameter)
              elif operation == 'sgroupby':
-                result = self.sgroupby(column)
+                result = self.sgroupby(parameter)
              elif operation == 'sdataws':
                 result = self.sdataws(column, unique_values)
 
@@ -90,9 +90,9 @@ class DataFrameOperations:
         return self.dataframe[self.dataframe[column].str.match(regex, na=False)]
 
     def sgroupby(self, column):
+        parameter=parameter.split(',')
         df = self.dataframe.copy()
-        df['timestamp'] = pd.to_datetime(df['timestamp'])
-        return df.groupby(df['timestamp'].dt.date)[column].value_counts().reset_index()
+        return df.groupby(df[parameter[0]])[parameter[1:]].value_counts().reset_index()
 
     def sdataws(self, column, selected_values):
         print("Selected Column:", column)
